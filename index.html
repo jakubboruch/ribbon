@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribbon</title>
+    <link rel="stylesheet" href="./css/fabric-icons.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="./css/app.css"/>
+</head>
+<body>
+<div class="ribbon">
+    <input class="tab-input" id="tabFile" name="ribbonTab" type="radio" disabled/>
+    <input class="tab-input" checked="checked" id="tabHome" name="ribbonTab" type="radio"/>
+    <input class="tab-input" id="tabInsert" name="ribbonTab" type="radio"/>
+    <input class="tab-input" id="tabLayout" name="ribbonTab" type="radio" disabled/>
+    <input class="tab-input" id="tabReferences" name="ribbonTab" type="radio" disabled/>
+    <input class="tab-input" id="tabReview" name="ribbonTab" type="radio" disabled/>
+    <input class="tab-input" id="tabView" name="ribbonTab" type="radio" disabled/>
+    <input class="tab-input" id="tabHelp" name="ribbonTab" type="radio" disabled/>
+    <nav class="ribbon__nav">
+        <ul class="ribbon__nav-container">
+            <li class="tab tab__file">
+                <label for="tabFile" data-ribbonname="File">File</label>
+            </li>
+            <li class="tab tab__home">
+                <label for="tabHome" data-ribbonname="Home">Home</label>
+            </li>
+            <li class="tab tab__insert">
+                <label for="tabInsert" data-ribbonname="Insert">Insert</label>
+            </li>
+            <li class="tab tab__references">
+                <label for="tabReferences" data-ribbonname="References">References</label>
+            </li>
+            <li class="tab tab__review">
+                <label for="tabReview" data-ribbonname="Review">Review</label>
+            </li>
+            <li class="tab tab__view">
+                <label for="tabView" data-ribbonname="View">View</label>
+            </li>
+            <li class="tab tab__help">
+                <label for="tabHelp" data-ribbonname="Help">Help</label>
+            </li>
+        </ul>
+    </nav>
+    <section class="ribbon__content">
+        <div class="tab__home">
+            <section class="ribbon__section ribbon__section--vertical" data-ribbonsectionname="Undo">
+                <button class="ribbon-btn ribbon-btn--m" data-title="Undo">
+                    <i class="ms-Icon ms-Icon--Undo"></i>
+                </button>
+                <button class="ribbon-btn ribbon-btn--m" data-title="Redo">
+                    <i class="ms-Icon ms-Icon--Redo"></i>
+                </button>
+            </section>
+
+            <section class="ribbon__section" data-ribbonsectionname="Clipboard">
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--l" data-title="Paste">
+                        <i class="ms-Icon ms-Icon--Paste"></i>
+                    </button>
+                    <aside class="ribbon__section--vertical">
+                        <button class="ribbon-btn ribbon-btn--s" data-title="Cut">
+                            <i class="ms-Icon ms-Icon--Cut"></i>
+                        </button>
+                        <button class="ribbon-btn ribbon-btn--s" data-title="Copy">
+                            <i class="ms-Icon ms-Icon--Copy"></i>
+                        </button>
+                        <button class="ribbon-btn ribbon-btn--s">
+                            <i class="ms-Icon ms-Icon--FormatPainter"></i>
+                        </button>
+                    </aside>
+                </aside>
+            </section>
+            <section class="ribbon__section" data-ribbonsectionname="Font">
+                <aside class="ribbon__section--horizontal">
+                    <div class="ribbon-combobox-group">
+                        <div class="ribbon-combobox ribbon-combobox--font-name" data-title="Font name">
+                            <input type="text" class="ribbon-combobox__textfield">
+                            <button class="ribbon-combobox__btn">
+                                <i class="ms-Icon ms-Icon--ChevronDownSmall"></i>
+                            </button>
+                        </div>
+                        <div class="ribbon-combobox ribbon-combobox--font-size" data-title="Font size"
+                             data-clickoutside>
+                            <input type="text" class="ribbon-combobox__textfield">
+                            <button class="ribbon-combobox__btn" onclick="showFontSizeList(event)">
+                                <i class="ms-Icon ms-Icon--ChevronDownSmall"></i>
+                            </button>
+                            <ul class="ribbon-combobox__list">
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Increase Font Size">
+                        <i class="ms-Icon ms-Icon--FontIncrease"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Decrease Font Size">
+                        <i class="ms-Icon ms-Icon--FontDecrease"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Clear All Formating">
+                        <i class="ms-Icon ms-Icon--ClearFormatting"></i>
+                    </button>
+                </aside>
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Bold">
+                        <i class="ms-Icon ms-Icon--Bold"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Italic">
+                        <i class="ms-Icon ms-Icon--Italic"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Underline">
+                        <i class="ms-Icon ms-Icon--Underline"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Strikethrough">
+                        <i class="ms-Icon ms-Icon--Strikethrough"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Subscript">
+                        <i class="ms-Icon ms-Icon--Subscript"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Superscript">
+                        <i class="ms-Icon ms-Icon--Superscript"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Change Case">
+                        <i class="ms-Icon ms-Icon--FontSize"></i>
+                    </button>
+                </aside>
+            </section>
+            <section class="ribbon__section" data-ribbonsectionname="Paragraph">
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Bulletpoints">
+                        <i class="ms-Icon ms-Icon--BulletedList2"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Numbering">
+                        <i class="ms-Icon ms-Icon--NumberedList"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Multi-level List">
+                        <i class="ms-Icon ms-Icon--BulletedTreeList"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Decrease Indent">
+                        <i class="ms-Icon ms-Icon--DecreaseIndent"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Increase Indent">
+                        <i class="ms-Icon ms-Icon--IncreaseIndent"></i>
+                    </button>
+
+
+                </aside>
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Align to Left">
+                        <i class="ms-Icon ms-Icon--AlignLeft"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Center Text">
+                        <i class="ms-Icon ms-Icon--AlignCenter"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Align to Right">
+                        <i class="ms-Icon ms-Icon--AlignRight"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Justify Text">
+                        <i class="ms-Icon ms-Icon--AlignJustify"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Line and Paragraph Spacing">
+                        <i class="ms-Icon ms-Icon--LineSpacing"></i>
+                    </button>
+
+
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Increase Indent Hanging">
+                        <i class="ms-Icon ms-Icon--IncreaseIndentHanging"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--s" data-title="Show/Hide formatting Marks">
+                        ¶
+                    </button>
+                </aside>
+            </section>
+
+        </div>
+        <div class="tab__insert">
+            <section class="ribbon__section" data-ribbonsectionname="Tabels">
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--l" data-title="Table">
+                        <i class="ms-Icon ms-Icon--Table"></i>
+                    </button>
+                </aside>
+            </section>
+            <section class="ribbon__section" data-ribbonsectionname="Images">
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--l" data-title="Image">
+                        <i class="ms-Icon ms-Icon--PictureFill"></i>
+                    </button>
+                    <button class="ribbon-btn ribbon-btn--l" data-title="Bing">
+                        <i class="ms-Icon ms-Icon--BingLogo"></i>
+                    </button>
+                </aside>
+            </section>
+            <section class="ribbon__section" data-ribbonsectionname="Emoji">
+                <aside class="ribbon__section--horizontal">
+                    <button class="ribbon-btn ribbon-btn--l" data-title="Emoji" data-emojibtn
+                            onclick="showEmojiOptions(event)">
+                        <i class="ms-Icon ms-Icon--Emoji2"></i>
+                    </button>
+                </aside>
+            </section>
+        </div>
+    </section>
+</div>
+<div class="ribbon-modal" data-clickoutside></div>
+<div class="ribbon-btn-tooltip"></div>
+<script src="./js/ribbon-combobox.js"></script>
+<script src="./js/ribbon-modal.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

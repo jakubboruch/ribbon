@@ -1,0 +1,92 @@
+.ribbon-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--almost-black);
+    transition: 100ms background-color ease-in-out;
+}
+
+.ribbon-btn:hover,
+.ribbon-btn.active-modal {
+    background-color: var(--ebb)
+}
+
+.ribbon-btn:active {
+    background-color: var(--cloud)
+}
+
+.ribbon-btn--s {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.ribbon-btn--m {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.ribbon-btn--l {
+    width: 40px;
+    font-size: 30px;
+    padding: .3em .1em;
+}
+
+.ribbon-btn--l:after {
+    content: attr(data-title);
+    display: block;
+    font-size: 11px;
+    font-weight: 200;
+    line-height: 1.5em;
+}
+
+.ribbon-btn-tooltip {
+    display: flex;
+    position: absolute;
+    left: var(--ribbon-btn-tooltip-left);
+    top: var(--ribbon-btn-tooltip-top);
+    pointer-events: none;
+    transition: 250ms opacity linear;
+    transition-delay: 1000ms;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--white);
+    color: var(--dark-gray);
+    font-size: 12px;
+    font-weight: 200;
+    min-height: 26px;
+    padding: .2em 1em;
+    line-height: 1.5em;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--light-gray);
+    box-shadow: var(--box-shadow-standard);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.ribbon-btn-tooltip:after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    background: var(--white);
+    transform-origin: center;
+    transform: translateX(-50%) rotate(-135deg);
+    box-shadow: inset -5px -5px 1px -4px var(--light-gray);
+}
+
+.ribbon-btn-tooltip--show {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,159 @@
+.ribbon {
+    background-color: var(--almost-white);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ribbon > input,
+.ribbon section > div {
+    display: none;
+}
+
+.ribbon__nav {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ribbon__content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    height: 90px;
+}
+
+.ribbon__section {
+    display: flex;
+    border-right: 1px solid var(--light-gray);
+    padding: 0px 7px 14px 7px;
+    position: relative;
+    flex-direction: column;
+}
+
+.ribbon__section:after {
+    color: var(--dark-gray);
+    content: attr(data-ribbonsectionname);
+    display: block;
+    font-weight: 200;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    font-size: 10px;
+}
+
+.ribbon__section--vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ribbon__section--horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.tab {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    user-select: none;
+}
+
+.ribbon__nav-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.tab label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.tab label:after {
+    color: transparent;
+    content: attr(data-ribbonname);
+    display: block;
+    font-weight: 600;
+    height: 1px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#tabFile:checked ~ section .tab__file,
+#tabHome:checked ~ section .tab__home,
+#tabInsert:checked ~ section .tab__insert {
+    display: flex;
+}
+
+#tabFile:not([disabled]) ~ nav .tab__file:active,
+#tabHome:not([disabled]) ~ nav .tab__home:active,
+#tabInsert:not([disabled]) ~ nav .tab__insert:active {
+    background-color: var(--cloud);
+}
+
+#tabFile:not([disabled]) ~ nav .tab__file:hover,
+#tabHome:not([disabled]) ~ nav .tab__home:hover,
+#tabInsert:not([disabled]) ~ nav .tab__insert:hover {
+    background-color: var(--ebb);
+}
+
+#tabFile:not([disabled]) ~ nav .tab__file:hover label,
+#tabHome:not([disabled]) ~ nav .tab__home:hover label,
+#tabInsert:not([disabled]) ~ nav .tab__insert:hover label {
+    text-shadow: 0px 0px 1px var(--almost-black);
+}
+
+#tabFile:not([disabled]) ~ nav .tab__file:hover label:active,
+#tabHome:not([disabled]) ~ nav .tab__home:hover label:active,
+#tabInsert:not([disabled]) ~ nav .tab__insert:hover label:active {
+    background-color: var(--cloud);
+}
+
+#tabFile:checked ~ nav .tab__file label,
+#tabHome:checked ~ nav .tab__home label,
+#tabInsert:checked ~ nav .tab__insert label {
+    text-shadow: 0px 0px 1px var(--almost-black);
+}
+
+#tabFile:checked ~ nav .tab__file:before,
+#tabHome:checked ~ nav .tab__home:before,
+#tabInsert:checked ~ nav .tab__insert:before {
+    position: absolute;
+    display: block;
+    content: '';
+    height: 3px;
+    background: blue;
+    top: 100%;
+    left: 10px;
+    right: 10px;
+    transition: 250ms all ease-in-out, 250ms right ease-in-out;
+}
+
+#tabFile:checked ~ nav .tab__file:hover:before,
+#tabHome:checked ~ nav .tab__home:hover:before,
+#tabInsert:checked ~ nav .tab__insert:hover:before {
+    left: 0px;
+    right: 0px;
+}
+
+#tabFile:checked ~ nav .tab__file,
+#tabHome:checked ~ nav .tab__home,
+#tabInsert:checked ~ nav .tab__insert {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+}
